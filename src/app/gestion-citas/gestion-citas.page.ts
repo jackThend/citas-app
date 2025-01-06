@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; 
+import { Component } from '@angular/core';
 import { CitasService } from '../services/citas.service';
 import { Location } from '@angular/common'; // Importar para la navegación
 

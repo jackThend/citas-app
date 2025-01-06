@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { GestionCitasPageRoutingModule } from './gestion-citas-routing.module';
 import { GestionCitasPage } from './gestion-citas.page';
+import { CitaItemComponent } from '../components/cita-item/cita-item.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { GestionCitasPage } from './gestion-citas.page';
     IonicModule,
     GestionCitasPageRoutingModule
   ],
-  declarations: [GestionCitasPage] // Declaración del componente
+  declarations: [GestionCitasPage, CitaItemComponent]
 })
 export class GestionCitasPageModule {}
