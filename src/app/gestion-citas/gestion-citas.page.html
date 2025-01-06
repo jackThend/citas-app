@@ -10,15 +10,52 @@
       <ion-card-title>Crea una nueva cita</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <ion-label position="stacked">Cita</ion-label>
-        <ion-input [(ngModel)]="nuevaFrase"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Autor</ion-label>
-        <ion-input [(ngModel)]="nuevoAutor"></ion-input>
-      </ion-item>
-      <ion-button expand="block" (click)="agregarCita()">Agregar</ion-button>
+      <form #citaForm="ngForm" (ngSubmit)="agregarCita(citaForm)">
+        <!-- Campo Cita -->
+        <ion-item>
+          <ion-label position="stacked">Cita</ion-label>
+          <ion-input
+            [(ngModel)]="nuevaFrase"
+            name="nuevaFrase"
+            required
+            minlength="5"
+            (ionInput)="resetMensajes()"
+            #nuevaFraseInput="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="nuevaFrase && nuevaFraseInput.invalid && nuevaFraseInput.touched">
+          La frase debe tener al menos 5 caracteres.
+        </ion-note>
+
+        <!-- Campo Autor -->
+        <ion-item>
+          <ion-label position="stacked">Autor</ion-label>
+          <ion-input
+            [(ngModel)]="nuevoAutor"
+            name="nuevoAutor"
+            required
+            minlength="2"
+            (ionInput)="resetMensajes()"
+            #nuevoAutorInput="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="nuevoAutor && nuevoAutorInput.invalid && nuevoAutorInput.touched">
+          El autor debe tener al menos 2 caracteres.
+        </ion-note>
+
+        <!-- Mensaje de éxito -->
+        <ion-note color="success" *ngIf="mensajeExito">
+          {{ mensajeExito }}
+        </ion-note>
+
+        <!-- Botón Agregar -->
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="citaForm.invalid">
+          Agregar
+        </ion-button>
+      </form>
     </ion-card-content>
   </ion-card>
 
