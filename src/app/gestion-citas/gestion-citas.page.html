@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crea una nueva cita</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Cita</ion-label>
+        <ion-input [(ngModel)]="nuevaFrase"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Autor</ion-label>
+        <ion-input [(ngModel)]="nuevoAutor"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="agregarCita()">Agregar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let cita of citas">
+      <ion-label>
+        <h2>{{ cita.frase }}</h2>
+        <p>{{ cita.autor }}</p>
+      </ion-label>
+      <ion-button fill="clear" color="danger" (click)="eliminarCita(cita)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón de Inicio -->
+      <ion-button routerLink="/inicio">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón de Atrás -->
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón de Adelante -->
+      <ion-button (click)="goForward()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

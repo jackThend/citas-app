@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Configuraciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Permitir eliminar citas en el inicio</ion-label>
+    <ion-toggle [(ngModel)]="borrarCitasEnInicio" (ionChange)="toggleBorrarCitas()"></ion-toggle>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón de Inicio -->
+      <ion-button routerLink="/inicio">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón de Atrás -->
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón de Adelante -->
+      <ion-button (click)="goForward()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
