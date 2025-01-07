@@ -10,10 +10,19 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="mostrarCita" class="cita-container">
+  <!-- Mostrar cita aleatoria si mostrarCita es true -->
+  <div *ngIf="mostrarCita; else noCita" class="cita-container">
     <p class="cita">{{ cita }}</p>
     <p class="autor">- {{ autor }}</p>
   </div>
+
+  <!-- Mensaje alternativo cuando mostrarCita es false -->
+  <ng-template #noCita>
+    <div class="no-cita-container">
+      <p>Mostrar cita: Off.</p>
+    </div>
+  </ng-template>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="irAGestionCitas()">
       <ion-icon name="add"></ion-icon>
